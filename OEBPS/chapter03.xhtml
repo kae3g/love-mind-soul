@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 3: SIEGE Expressions</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+    <h1 class="chapter-title">Chapter 3: SIEGE Expressions</h1>
+    
+    <h2>The Mathematical Language of Audio</h2>
+    
+    <p>SIEGE (Sample-accurate Integer Execution of Garden Expressions) is MAITREYA's <span class="highlight">domain-specific language</span> for audio processing. It represents a fundamental shift from traditional imperative audio programming to a declarative, mathematically precise approach.</p>
+    
+    <blockquote>
+        "SIEGE expressions are not just code—they are mathematical poetry that describes the behavior of sound through time."
+    </blockquote>
+    
+    <h3>Core Philosophy</h3>
+    
+    <p>SIEGE expressions embody several key principles:</p>
+    
+    <ul>
+        <li><strong>Referential Transparency:</strong> Same inputs always produce same outputs</li>
+        <li><strong>Time-Invariance:</strong> Consistent behavior across time domains</li>
+        <li><strong>Composability:</strong> Expressions can be combined arbitrarily</li>
+        <li><strong>Differentiability:</strong> Supports automatic differentiation for DSP</li>
+    </ul>
+    
+    <h3>Expression Types</h3>
+    
+    <p>SIEGE provides a rich set of primitive expression types:</p>
+    
+    <div class="info">
+        <h4>Basic Primitives</h4>
+        <pre><code>data SiegeExpr a where
+  Const :: Double -> SiegeExpr Double        -- Constant values
+  Time :: SiegeExpr Double                   -- Current time
+  Sin :: SiegeExpr Double -> SiegeExpr Double -- Sine wave
+  Add :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double -- Addition
+  Mul :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double -- Multiplication</code></pre>
+    </div>
+    
+    <h3>Advanced Constructs</h3>
+    
+    <p>Beyond basic primitives, SIEGE supports sophisticated audio processing constructs:</p>
+    
+    <div class="info">
+        <h4>Envelope Generators</h4>
+        <pre><code>-- ADSR Envelope
+adsr :: Double -> Double -> Double -> Double -> SiegeExpr Double
+adsr attack decay sustain release = 
+  case time of
+    t | t < attack -> t / attack
+    t | t < attack + decay -> 
+      1 + (sustain - 1) * (t - attack) / decay
+    t | t < attack + decay + release ->
+      sustain * (1 - (t - attack - decay) / release)
+    _ -> 0</code></pre>
+    </div>
+    
+    <div class="info">
+        <h4>Filter Design</h4>
+        <pre><code>-- Low-pass filter with golden ratio coefficients
+lowPass :: Double -> SiegeExpr Double -> SiegeExpr Double
+lowPass cutoff input = 
+  let alpha = 2 * pi * cutoff / sampleRate
+      golden = (1 + sqrt 5) / 2
+  in integrate (input - (previous * golden * alpha))</code></pre>
+    </div>
+    
+    <h3>Mathematical Beauty</h3>
+    
+    <p>SIEGE expressions naturally incorporate mathematical beauty through the golden ratio:</p>
+    
+    <div class="success">
+        <h4>Golden Ratio Applications</h4>
+        <ul>
+            <li><strong>Filter Coefficients:</strong> Golden ratio-based frequency scaling</li>
+            <li><strong>Reverb Times:</strong> Exponential decay with φ relationships</li>
+            <li><strong>Tuning Systems:</strong> Alternative scales based on mathematical harmony</li>
+            <li><strong>Modulation:</strong> LFO frequencies following golden ratios</li>
+        </ul>
+    </div>
+    
+    <h3>Functional Composition</h3>
+    
+    <p>The power of SIEGE lies in its composability. Complex audio processing chains are built by combining simple expressions:</p>
+    
+    <pre><code>-- Complex synthesizer voice
+createSynthVoice :: Double -> Double -> Double -> Double -> SiegeExpr Double
+createSynthVoice frequency amp attack release = 
+  let envelope = adsr attack 0.5 0.7 release
+      oscillator = sin (const (frequency * 2 * pi) * time)
+      filtered = lowPass (frequency * goldenRatio) oscillator
+  in filtered * envelope * const amp</code></pre>
+    
+    <h3>Type Safety Guarantees</h3>
+    
+    <p>Haskell's type system ensures that SIEGE expressions are mathematically sound:</p>
+    
+    <div class="warning">
+        <h4>Type Safety Benefits</h4>
+        <ul>
+            <li><strong>Buffer Safety:</strong> No out-of-bounds access</li>
+            <li><strong>Real-time Guarantees:</strong> Bounded computation time</li>
+            <li><strong>Memory Safety:</strong> No leaks or undefined behavior</li>
+            <li><strong>Thread Safety:</strong> Lock-free algorithms verified</li>
+        </ul>
+    </div>
+    
+    <h3>Performance Optimization</h3>
+    
+    <p>SIEGE expressions are compiled to highly optimized machine code:</p>
+    
+    <ul>
+        <li><strong>SIMD Vectorization:</strong> Automatic parallel processing</li>
+        <li><strong>Constant Folding:</strong> Compile-time optimization</li>
+        <li><strong>Loop Fusion:</strong> Eliminating intermediate buffers</li>
+        <li><strong>Memory Pre-allocation:</strong> Avoiding runtime allocation</li>
+    </ul>
+    
+    <h3>Educational Value</h3>
+    
+    <p>SIEGE expressions serve as an excellent educational tool for understanding audio processing:</p>
+    
+    <blockquote>
+        "Learning SIEGE is like learning to think mathematically about sound. It transforms abstract concepts into concrete, executable expressions."
+    </blockquote>
+    
+    <p>Students can:</p>
+    <ul>
+        <li>Visualize mathematical relationships in audio</li>
+        <li>Understand the connection between theory and practice</li>
+        <li>Experiment with different mathematical approaches</li>
+        <li>Develop intuition for audio processing concepts</li>
+    </ul>
+    
+    <h3>Integration with Other Languages</h3>
+    
+    <p>SIEGE expressions can be used from multiple languages:</p>
+    
+    <div class="info">
+        <h4>Clojure Integration</h4>
+        <pre><code>(ns examples.basic-synth
+  (:require [maitreya.siege :as siege]))
+
+;; Create a simple sine wave
+(def simple-sine (siege/sin (siege/const 440)))
+
+;; Add golden ratio modulation
+(def golden-mod (siege/mul simple-sine 
+                          (siege/sin (siege/mul (siege/const siege/golden-ratio) 
+                                              (siege/time)))))</code></pre>
+    </div>
+    
+    <h3>Future Extensions</h3>
+    
+    <p>SIEGE is designed for extensibility. Future versions will include:</p>
+    
+    <ul>
+        <li><strong>Spectral Processing:</strong> FFT-based operations</li>
+        <li><strong>Machine Learning:</strong> Neural network integration</li>
+        <li><strong>Physical Modeling:</strong> Synthesis based on physical laws</li>
+        <li><strong>Probabilistic Programming:</strong> Stochastic audio generation</li>
+    </ul>
+    
+    <h3>Practical Examples</h3>
+    
+    <p>Let's look at some practical examples of SIEGE expressions:</p>
+    
+    <div class="info">
+        <h4>Simple Synthesizer</h4>
+        <pre><code>-- Basic synthesizer with ADSR envelope
+basicSynth :: Double -> Double -> SiegeExpr Double
+basicSynth frequency amplitude = 
+  let osc = sin (const (frequency * 2 * pi) * time)
+      env = adsr 0.1 0.2 0.7 0.5
+  in osc * env * const amplitude</code></pre>
+    </div>
+    
+    <div class="info">
+        <h4>Chorus Effect</h4>
+        <pre><code>-- Chorus effect using multiple delayed voices
+chorus :: Double -> Double -> SiegeExpr Double -> SiegeExpr Double
+chorus depth rate input = 
+  let lfo = sin (const (rate * 2 * pi) * time)
+      delay1 = delay (0.01 + depth * lfo) input
+      delay2 = delay (0.015 + depth * lfo * goldenRatio) input
+  in input + delay1 * const 0.5 + delay2 * const 0.3</code></pre>
+    </div>
+    
+    <h3>The Poetry of Sound</h3>
+    
+    <p>SIEGE expressions represent a new way of thinking about audio programming—one that treats sound as a mathematical poem to be composed rather than a signal to be manipulated. This approach leads to:</p>
+    
+    <ul>
+        <li><strong>More Intuitive Code:</strong> Expressions read like mathematical descriptions</li>
+        <li><strong>Easier Debugging:</strong> Referential transparency makes issues obvious</li>
+        <li><strong>Better Performance:</strong> Compiler optimizations are more effective</li>
+        <li><strong>Educational Value:</strong> Code teaches as it executes</li>
+    </ul>
+    
+    <p>In the next chapter, we will explore the development journey that led to MAITREYA's creation, including the challenges overcome and lessons learned along the way.</p>
+    
+    <div class="footer">
+        <p><span class="emoji">🌸</span> Mathematics is the language in which God has written the universe, and SIEGE is how we speak it for sound <span class="emoji">💙</span></p>
+    </div>
+</body>
+</html>

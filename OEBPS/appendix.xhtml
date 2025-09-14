@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Appendix: Technical Specifications</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+    <h1 class="chapter-title">Appendix: Technical Specifications</h1>
+    
+    <h2>MAITREYA DAW Technical Reference</h2>
+    
+    <p>This appendix provides comprehensive technical specifications for the MAITREYA DAW project, including implementation details, API references, and development guidelines.</p>
+    
+    <h3>System Requirements</h3>
+    
+    <div class="info">
+        <h4>Minimum System Requirements</h4>
+        <ul>
+            <li><strong>Operating System:</strong> macOS 10.15+, Linux (Ubuntu 20.04+), Windows 10+</li>
+            <li><strong>Memory:</strong> 8GB RAM (16GB recommended)</li>
+            <li><strong>Storage:</strong> 2GB available space</li>
+            <li><strong>Audio Interface:</strong> Core Audio (macOS), ALSA (Linux), ASIO (Windows)</li>
+            <li><strong>Network:</strong> Internet connection for initial setup and updates</li>
+        </ul>
+    </div>
+    
+    <h3>Development Environment Setup</h3>
+    
+    <h4>Required Tools</h4>
+    <pre><code># Clojure CLI
+curl -O https://download.clojure.org/install/linux-install-1.11.1.1403.sh
+chmod +x linux-install-1.11.1.1403.sh
+sudo ./linux-install-1.11.1.1403.sh
+
+# Haskell Toolchain
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+ghcup install ghc 9.4.0
+ghcup install cabal 3.8.1.0
+
+# Rust Toolchain
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup toolchain install stable
+
+# Node.js and npm
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+    
+    <h3>SIEGE Expression Language Reference</h3>
+    
+    <h4>Core Data Types</h4>
+    <pre><code>data SiegeExpr a where
+  Const :: Double -> SiegeExpr Double
+  Time :: SiegeExpr Double
+  Sin :: SiegeExpr Double -> SiegeExpr Double
+  Cos :: SiegeExpr Double -> SiegeExpr Double
+  Add :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double
+  Mul :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double
+  Div :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double
+  Pow :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double</code></pre>
+    
+    <h4>Audio Processing Functions</h4>
+    <pre><code>-- ADSR Envelope Generator
+adsr :: Double -> Double -> Double -> Double -> SiegeExpr Double
+adsr attack decay sustain release = ...
+
+-- Low-pass Filter
+lowPass :: Double -> SiegeExpr Double -> SiegeExpr Double
+lowPass cutoff input = ...
+
+-- High-pass Filter
+highPass :: Double -> SiegeExpr Double -> SiegeExpr Double
+highPass cutoff input = ...
+
+-- Delay Effect
+delay :: Double -> SiegeExpr Double -> SiegeExpr Double
+delay time input = ...</code></pre>
+    
+    <h3>API Reference</h3>
+    
+    <h4>Clojure UI API</h4>
+    <pre><code>(ns maitreya.ui.core
+  "Core UI components and functions")
+
+(defn transport-controls []
+  "Create transport control UI component")
+
+(defn audio-editor []
+  "Create audio editing interface")
+
+(defn mixer-panel []
+  "Create mixing console interface")
+
+(defn plugin-host []
+  "Create plugin hosting environment")</code></pre>
+    
+    <h4>Haskell Audio Engine API</h4>
+    <pre><code>module Audio.Engine where
+
+data AudioEngine = AudioEngine
+  { sampleRate :: Int
+  , bufferSize :: Int
+  , isRunning :: Bool
+  }
+
+newEngine :: Int -> Int -> IO AudioEngine
+processBuffer :: AudioEngine -> AudioBuffer -> IO AudioBuffer
+startEngine :: AudioEngine -> IO ()
+stopEngine :: AudioEngine -> IO ()</code></pre>
+    
+    <h4>Rust Performance API</h4>
+    <pre><code>pub struct AudioEngine {
+    running: AtomicBool,
+    sample_rate: u32,
+    buffer_size: usize,
+}
+
+impl AudioEngine {
+    pub fn new(sample_rate: u32, buffer_size: usize) -> Self
+    pub fn process_buffer(&self, buffer: &mut [f64])
+    pub fn start(&self)
+    pub fn stop(&self)
+}</code></pre>
+    
+    <h3>Build Configuration</h3>
+    
+    <h4>Clojure Project Configuration</h4>
+    <pre><code>;; project.clj
+(defproject maitreya "0.1.0-SNAPSHOT"
+  :description "Sovereign Digital Audio Workstation"
+  :url "https://github.com/kae3g/maitreya"
+  :license {:name "Apache License 2.0"}
+  :dependencies [[org.clojure/clojure "1.11.1"]
+                 [humble.ui/humble.ui "0.9.0"]
+                 [humble.audio/humble.audio "0.1.0"]]
+  :main maitreya.core)</code></pre>
+    
+    <h4>Haskell Package Configuration</h4>
+    <pre><code>-- package.yaml
+name: maitreya-core
+version: 0.1.0.0
+synopsis: MAITREYA DAW Core Audio Engine
+description: Mathematical audio processing with SIEGE expressions
+
+dependencies:
+- base >= 4.14 && < 5
+- vector
+- containers
+- mtl
+
+library:
+  source-dirs: src
+  dependencies: []</code></pre>
+    
+    <h4>Rust Cargo Configuration</h4>
+    <pre><code>[package]
+name = "maitreya-audio"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+crossbeam = "0.8"
+portaudio-rs = "0.3"
+num-traits = "0.2"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1</code></pre>
+    
+    <h3>Testing Framework</h3>
+    
+    <h4>Clojure Testing</h4>
+    <pre><code>(ns maitreya.test.core
+  (:require [clojure.test :refer :all]
+            [maitreya.audio :as audio]))
+
+(deftest audio-processing-test
+  (testing "Basic audio processing"
+    (let [engine (audio/new-engine 44100 1024)
+          buffer (audio/process-buffer engine)]
+      (is (= (count buffer) 1024))
+      (is (every? #(and (>= % -1.0) (<= % 1.0)) buffer)))))</code></pre>
+    
+    <h4>Haskell Testing</h4>
+    <pre><code>import Test.Hspec
+import Audio.Core
+
+main :: IO ()
+main = hspec $ do
+  describe "SIEGE expressions" $ do
+    it "evaluates constants correctly" $ do
+      evalExpr (Const 1.0) 0.0 `shouldBe` 1.0
+    
+    it "evaluates sine waves correctly" $ do
+      evalExpr (Sin (Const 1.0)) 0.0 `shouldBe` 0.0</code></pre>
+    
+    <h4>Rust Testing</h4>
+    <pre><code>#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn test_audio_engine_creation() {
+        let engine = AudioEngine::new(44100, 1024);
+        assert_eq!(engine.sample_rate, 44100);
+        assert_eq!(engine.buffer_size, 1024);
+    }
+    
+    #[test]
+    fn test_buffer_processing() {
+        let engine = AudioEngine::new(44100, 1024);
+        let mut buffer = vec![0.0; 1024];
+        engine.process_buffer(&mut buffer);
+        // Verify buffer processing
+    }
+}</code></pre>
+    
+    <h3>Performance Benchmarks</h3>
+    
+    <div class="success">
+        <h4>Performance Targets</h4>
+        <ul>
+            <li><strong>Latency:</strong> &lt; 10ms round-trip</li>
+            <li><strong>CPU Usage:</strong> &lt; 20% on modern hardware</li>
+            <li><strong>Memory Usage:</strong> &lt; 500MB baseline</li>
+            <li><strong>Startup Time:</strong> &lt; 5 seconds</li>
+        </ul>
+    </div>
+    
+    <h3>Security Considerations</h3>
+    
+    <h4>Cryptographic Verification</h4>
+    <pre><code># GPG signature verification
+gpg --verify maitreya-0.1.0.tar.gz.sig maitreya-0.1.0.tar.gz
+
+# SHA256 checksum verification
+sha256sum -c maitreya-0.1.0.tar.gz.sha256
+
+# Reproducible builds
+SOURCE_DATE_EPOCH=1234567890 ./build.sh</code></pre>
+    
+    <h4>Code Signing</h4>
+    <pre><code># macOS code signing
+codesign --deep --force --verbose --sign "Developer ID Application: kae3g" MAITREYA.app
+
+# Windows code signing
+signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com maitreya.exe
+
+# Linux package signing
+gpg --armor --detach-sign --output maitreya-0.1.0.tar.gz.sig maitreya-0.1.0.tar.gz</code></pre>
+    
+    <h3>Deployment Guide</h3>
+    
+    <h4>macOS Application Bundle</h4>
+    <pre><code>MAITREYA.app/
+├── Contents/
+│   ├── Info.plist
+│   ├── MacOS/
+│   │   └── maitreya
+│   └── Resources/
+│       └── maitreya.icns</code></pre>
+    
+    <h4>Linux Package Structure</h4>
+    <pre><code>maitreya/
+├── usr/
+│   ├── bin/
+│   │   └── maitreya
+│   ├── lib/
+│   │   └── maitreya/
+│   └── share/
+│       ├── applications/
+│       ├── icons/
+│       └── doc/</code></pre>
+    
+    <h3>Contributing Guidelines</h3>
+    
+    <h4>Development Workflow</h4>
+    <ol>
+        <li>Fork the repository</li>
+        <li>Create a feature branch</li>
+        <li>Make changes with tests</li>
+        <li>Submit a pull request</li>
+        <li>Address review feedback</li>
+        <li>Merge after approval</li>
+    </ol>
+    
+    <h4>Code Style Guidelines</h4>
+    <ul>
+        <li><strong>Clojure:</strong> Follow community conventions</li>
+        <li><strong>Haskell:</strong> Use HLint for style checking</li>
+        <li><strong>Rust:</strong> Use rustfmt for formatting</li>
+        <li><strong>Documentation:</strong> Update docs with code changes</li>
+    </ul>
+    
+    <h3>License Information</h3>
+    
+    <p>MAITREYA DAW is released under the Apache License 2.0:</p>
+    
+    <pre><code>Copyright 2025 kae3g
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</code></pre>
+    
+    <h3>Contact Information</h3>
+    
+    <div class="info">
+        <h4>Community Resources</h4>
+        <ul>
+            <li><strong>GitHub Repository:</strong> https://github.com/kae3g/maitreya</li>
+            <li><strong>Discussion Forum:</strong> https://github.com/kae3g/maitreya/discussions</li>
+            <li><strong>Issue Tracker:</strong> https://github.com/kae3g/maitreya/issues</li>
+            <li><strong>Documentation:</strong> https://github.com/kae3g/maitreya/docs</li>
+        </ul>
+    </div>
+    
+    <div class="footer">
+        <p><span class="emoji">🌸</span> Technical excellence serves the greater purpose of creative expression <span class="emoji">💙</span></p>
+        <p><em>This appendix provides the technical foundation for understanding and contributing to MAITREYA DAW. For the most current information, always refer to the official repository.</em></p>
+    </div>
+</body>
+</html>

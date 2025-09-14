@@ -1,0 +1,194 @@
+/* MAITREYA DAW Book Styles */
+/* A Gentle Revolution in Typography */
+
+@charset "UTF-8";
+
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 1em;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #1b3b36;
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid #d4af37;
+    padding-bottom: 0.3em;
+    text-align: center;
+}
+
+h2 {
+    color: #2a9d8f;
+    font-size: 1.8em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-left: 5px solid #d4af37;
+    padding-left: 0.5em;
+}
+
+h3 {
+    color: #1e1029;
+    font-size: 1.4em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+h4 {
+    color: #0a0f1b;
+    font-size: 1.2em;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+p {
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+blockquote {
+    border-left: 4px solid #d4af37;
+    margin: 1.5em 0;
+    padding-left: 1em;
+    font-style: italic;
+    color: #34495e;
+    background-color: #ecf0f1;
+    padding: 1em;
+    border-radius: 0 5px 5px 0;
+}
+
+code {
+    font-family: "Courier New", "Monaco", monospace;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.cover {
+    text-align: center;
+    page-break-after: always;
+    padding-top: 20%;
+}
+
+.subtitle {
+    color: #2a9d8f;
+    font-size: 1.3em;
+    font-weight: normal;
+    margin-top: 0.5em;
+}
+
+.author {
+    color: #1e1029;
+    font-size: 1.1em;
+    margin-top: 2em;
+    font-weight: bold;
+}
+
+.date {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-top: 1em;
+}
+
+.emoji {
+    font-size: 1.2em;
+}
+
+.chapter-title {
+    text-align: center;
+    page-break-before: always;
+    margin-bottom: 2em;
+}
+
+.toc {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.toc li {
+    margin-bottom: 0.5em;
+    padding-left: 1em;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+
+.toc a:hover {
+    color: #2a9d8f;
+}
+
+.highlight {
+    background-color: #f1c40f;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+.warning {
+    background-color: #e74c3c;
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
+    margin: 1em 0;
+}
+
+.info {
+    background-color: #3498db;
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
+    margin: 1em 0;
+}
+
+.success {
+    background-color: #27ae60;
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
+    margin: 1em 0;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 3em;
+    padding-top: 2em;
+    border-top: 1px solid #bdc3c7;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+    
+    blockquote, pre {
+        page-break-inside: avoid;
+    }
+}

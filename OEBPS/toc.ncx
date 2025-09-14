@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+    <head>
+        <meta name="dtb:uid" content="urn:uuid:maitreya-daw-book-2025"/>
+        <meta name="dtb:depth" content="2"/>
+        <meta name="dtb:totalPageCount" content="0"/>
+        <meta name="dtb:maxPageNumber" content="0"/>
+    </head>
+    
+    <docTitle>
+        <text>MAITREYA DAW: A Gentle Revolution in Music Production</text>
+    </docTitle>
+    
+    <navMap>
+        <navPoint id="cover" playOrder="1">
+            <navLabel><text>Cover</text></navLabel>
+            <content src="cover.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="nav" playOrder="2">
+            <navLabel><text>Table of Contents</text></navLabel>
+            <content src="nav.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="chapter1" playOrder="3">
+            <navLabel><text>Chapter 1: The Philosophy of MAITREYA</text></navLabel>
+            <content src="chapter01.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="chapter2" playOrder="4">
+            <navLabel><text>Chapter 2: The Technical Foundation</text></navLabel>
+            <content src="chapter02.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="chapter3" playOrder="5">
+            <navLabel><text>Chapter 3: SIEGE Expressions</text></navLabel>
+            <content src="chapter03.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="chapter4" playOrder="6">
+            <navLabel><text>Chapter 4: The Development Journey</text></navLabel>
+            <content src="chapter04.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="chapter5" playOrder="7">
+            <navLabel><text>Chapter 5: Community and Education</text></navLabel>
+            <content src="chapter05.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="chapter6" playOrder="8">
+            <navLabel><text>Chapter 6: The Future of Music Production</text></navLabel>
+            <content src="chapter06.xhtml"/>
+        </navPoint>
+        
+        <navPoint id="appendix" playOrder="9">
+            <navLabel><text>Appendix: Technical Specifications</text></navLabel>
+            <content src="appendix.xhtml"/>
+        </navPoint>
+    </navMap>
+</ncx>
