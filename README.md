@@ -7,12 +7,13 @@
 
 ## 📖 Book Overview
 
-"Love Mind Soul" is an immutable EPUB book that captures the complete journey of the MAITREYA DAW project—a gentle revolution in digital audio workstation development. This book embodies the principles of:
+"Love Mind Soul" is an immutable EPUB book that captures the complete journey of the MAITREYA DAW project—a gentle revolution in digital audio workstation development. Built on RISC-V paradigm principles of simplicity, modularity, and open standards, this book embodies the principles of:
 
 - **Immutable Knowledge**: Content preserved for eternity
 - **Sovereign Identity**: Cryptographically verified authorship
 - **Mathematical Beauty**: Golden ratio and SIEGE expression foundations
 - **Gentle Revolution**: Non-aggressive, community-focused development
+- **RISC-V Paradigm**: Reduced Instruction Set Computer principles applied to software architecture
 
 ## 🎵 MAITREYA DAW Documentation
 
@@ -23,6 +24,7 @@ This book documents the complete MAITREYA Digital Audio Workstation:
 - **SIEGE Expressions**: Mathematical audio processing language
 - **Sovereign Identity**: GPG-signed commits and verifiable builds
 - **Educational Excellence**: Complete documentation and tutorials
+- **RISC-V Architecture**: Simple, modular, and extensible system design
 
 ### Philosophy Integration
 - **Gentle Revolution**: Respectful, collaborative development
@@ -115,12 +117,18 @@ Apache License 2.0 - See LICENSE file for details
 
 ## 🌸 The Gentle Revolution
 
-This book represents more than documentation—it is a manifesto for the gentle revolution in software development. It demonstrates that:
+This book represents more than documentation—it is a manifesto for the gentle revolution in software development, built on RISC-V paradigm principles. It demonstrates that:
 
 - **Technology can serve human flourishing**
 - **Communities can govern themselves democratically**
 - **Education can be transparent and empowering**
 - **Creativity can be mathematically beautiful**
+- **RISC-V Principles**: 
+  - **Simplicity**: Minimal, orthogonal design reduces complexity
+  - **Modularity**: Extensible architecture with standard components
+  - **Open Source**: Royalty-free, community-driven development
+  - **Performance**: Efficient design through reduced complexity
+  - **Verifiability**: Formal verification of system behavior
 
 ## 💙 Getting Started
 
