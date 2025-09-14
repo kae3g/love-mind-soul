@@ -10,10 +10,14 @@
     
     <h2>The Mathematical Language of Audio</h2>
     
-    <p>SIEGE (Sample-accurate Integer Execution of Garden Expressions) is MAITREYA's <span class="highlight">domain-specific language</span> for audio processing. It represents a fundamental shift from traditional imperative audio programming to a declarative, mathematically precise approach.</p>
+<p>SIEGE (Sample-accurate Integer Execution of Garden Expressions) is MAITREYA's
+<span class="highlight">domain-specific language</span> for audio processing. It
+represents a fundamental shift from traditional imperative audio programming to
+a declarative, mathematically precise approach.</p>
     
     <blockquote>
-        "SIEGE expressions are not just code—they are mathematical poetry that describes the behavior of sound through time."
+"SIEGE expressions are not just code—they are mathematical poetry that "
+"describes the behavior of sound through time."
     </blockquote>
     
     <h3>Core Philosophy</h3>
@@ -21,10 +25,13 @@
     <p>SIEGE expressions embody several key principles:</p>
     
     <ul>
-        <li><strong>Referential Transparency:</strong> Same inputs always produce same outputs</li>
-        <li><strong>Time-Invariance:</strong> Consistent behavior across time domains</li>
-        <li><strong>Composability:</strong> Expressions can be combined arbitrarily</li>
-        <li><strong>Differentiability:</strong> Supports automatic differentiation for DSP</li>
+<li><strong>Referential Transparency:</strong> Same inputs always produce same
+outputs</li>
+<li><strong>Time-Invariance:</strong> Consistent behavior across time
+domains</li>
+<li><strong>Composability:</strong> Expressions can be combined arbitrarily</li>
+<li><strong>Differentiability:</strong> Supports automatic differentiation for
+DSP</li>
     </ul>
     
     <h3>Expression Types</h3>
@@ -38,12 +45,14 @@
   Time :: SiegeExpr Double                   -- Current time
   Sin :: SiegeExpr Double -> SiegeExpr Double -- Sine wave
   Add :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double -- Addition
-  Mul :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double -- Multiplication</code></pre>
+Mul :: SiegeExpr Double -> SiegeExpr Double -> SiegeExpr Double --
+Multiplication</code></pre>
     </div>
     
     <h3>Advanced Constructs</h3>
     
-    <p>Beyond basic primitives, SIEGE supports sophisticated audio processing constructs:</p>
+<p>Beyond basic primitives, SIEGE supports sophisticated audio processing
+constructs:</p>
     
     <div class="info">
         <h4>Envelope Generators</h4>
@@ -71,21 +80,25 @@ lowPass cutoff input =
     
     <h3>Mathematical Beauty</h3>
     
-    <p>SIEGE expressions naturally incorporate mathematical beauty through the golden ratio:</p>
+<p>SIEGE expressions naturally incorporate mathematical beauty through the
+golden ratio:</p>
     
     <div class="success">
         <h4>Golden Ratio Applications</h4>
         <ul>
-            <li><strong>Filter Coefficients:</strong> Golden ratio-based frequency scaling</li>
-            <li><strong>Reverb Times:</strong> Exponential decay with φ relationships</li>
-            <li><strong>Tuning Systems:</strong> Alternative scales based on mathematical harmony</li>
-            <li><strong>Modulation:</strong> LFO frequencies following golden ratios</li>
+<li><strong>Filter Coefficients:</strong> Golden ratio-based frequency
+scaling</li>
+<li><strong>Reverb Times:</strong> Exponential decay with φ relationships</li>
+<li><strong>Tuning Systems:</strong> Alternative scales based on mathematical
+harmony</li>
+<li><strong>Modulation:</strong> LFO frequencies following golden ratios</li>
         </ul>
     </div>
     
     <h3>Functional Composition</h3>
     
-    <p>The power of SIEGE lies in its composability. Complex audio processing chains are built by combining simple expressions:</p>
+<p>The power of SIEGE lies in its composability. Complex audio processing chains
+are built by combining simple expressions:</p>
     
     <pre><code>-- Complex synthesizer voice
 createSynthVoice :: Double -> Double -> Double -> Double -> SiegeExpr Double
@@ -97,15 +110,16 @@ createSynthVoice frequency amp attack release =
     
     <h3>Type Safety Guarantees</h3>
     
-    <p>Haskell's type system ensures that SIEGE expressions are mathematically sound:</p>
+<p>Haskell's type system ensures that SIEGE expressions are mathematically
+sound:</p>
     
     <div class="warning">
         <h4>Type Safety Benefits</h4>
         <ul>
             <li><strong>Buffer Safety:</strong> No out-of-bounds access</li>
-            <li><strong>Real-time Guarantees:</strong> Bounded computation time</li>
-            <li><strong>Memory Safety:</strong> No leaks or undefined behavior</li>
-            <li><strong>Thread Safety:</strong> Lock-free algorithms verified</li>
+<li><strong>Real-time Guarantees:</strong> Bounded computation time</li>
+<li><strong>Memory Safety:</strong> No leaks or undefined behavior</li>
+<li><strong>Thread Safety:</strong> Lock-free algorithms verified</li>
         </ul>
     </div>
     
@@ -114,18 +128,20 @@ createSynthVoice frequency amp attack release =
     <p>SIEGE expressions are compiled to highly optimized machine code:</p>
     
     <ul>
-        <li><strong>SIMD Vectorization:</strong> Automatic parallel processing</li>
+<li><strong>SIMD Vectorization:</strong> Automatic parallel processing</li>
         <li><strong>Constant Folding:</strong> Compile-time optimization</li>
         <li><strong>Loop Fusion:</strong> Eliminating intermediate buffers</li>
-        <li><strong>Memory Pre-allocation:</strong> Avoiding runtime allocation</li>
+<li><strong>Memory Pre-allocation:</strong> Avoiding runtime allocation</li>
     </ul>
     
     <h3>Educational Value</h3>
     
-    <p>SIEGE expressions serve as an excellent educational tool for understanding audio processing:</p>
+<p>SIEGE expressions serve as an excellent educational tool for understanding
+audio processing:</p>
     
     <blockquote>
-        "Learning SIEGE is like learning to think mathematically about sound. It transforms abstract concepts into concrete, executable expressions."
+"Learning SIEGE is like learning to think mathematically about sound. I"
+"t transforms abstract concepts into concrete, executable expressions."
     </blockquote>
     
     <p>Students can:</p>
@@ -150,7 +166,7 @@ createSynthVoice frequency amp attack release =
 
 ;; Add golden ratio modulation
 (def golden-mod (siege/mul simple-sine 
-                          (siege/sin (siege/mul (siege/const siege/golden-ratio) 
+(siege/sin (siege/mul (siege/const siege/golden-ratio)
                                               (siege/time)))))</code></pre>
     </div>
     
@@ -161,8 +177,8 @@ createSynthVoice frequency amp attack release =
     <ul>
         <li><strong>Spectral Processing:</strong> FFT-based operations</li>
         <li><strong>Machine Learning:</strong> Neural network integration</li>
-        <li><strong>Physical Modeling:</strong> Synthesis based on physical laws</li>
-        <li><strong>Probabilistic Programming:</strong> Stochastic audio generation</li>
+<li><strong>Physical Modeling:</strong> Synthesis based on physical laws</li>
+<li><strong>Probabilistic Programming:</strong> Stochastic audio generation</li>
     </ul>
     
     <h3>Practical Examples</h3>
@@ -192,19 +208,28 @@ chorus depth rate input =
     
     <h3>The Poetry of Sound</h3>
     
-    <p>SIEGE expressions represent a new way of thinking about audio programming—one that treats sound as a mathematical poem to be composed rather than a signal to be manipulated. This approach leads to:</p>
+<p>SIEGE expressions represent a new way of thinking about audio programming—one
+that treats sound as a mathematical poem to be composed rather than a signal to
+be manipulated. This approach leads to:</p>
     
     <ul>
-        <li><strong>More Intuitive Code:</strong> Expressions read like mathematical descriptions</li>
-        <li><strong>Easier Debugging:</strong> Referential transparency makes issues obvious</li>
-        <li><strong>Better Performance:</strong> Compiler optimizations are more effective</li>
+<li><strong>More Intuitive Code:</strong> Expressions read like mathematical
+descriptions</li>
+<li><strong>Easier Debugging:</strong> Referential transparency makes issues
+obvious</li>
+<li><strong>Better Performance:</strong> Compiler optimizations are more
+effective</li>
         <li><strong>Educational Value:</strong> Code teaches as it executes</li>
     </ul>
     
-    <p>In the next chapter, we will explore the development journey that led to MAITREYA's creation, including the challenges overcome and lessons learned along the way.</p>
+<p>In the next chapter, we will explore the development journey that led to
+MAITREYA's creation, including the challenges overcome and lessons learned along
+the way.</p>
     
     <div class="footer">
-        <p><span class="emoji">🌸</span> Mathematics is the language in which God has written the universe, and SIEGE is how we speak it for sound <span class="emoji">💙</span></p>
+<p><span class="emoji">🌸</span> Mathematics is the language in which God has
+written the universe, and SIEGE is how we speak it for sound <span
+class="emoji">💙</span></p>
     </div>
 </body>
 </html>

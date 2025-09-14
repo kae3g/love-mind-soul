@@ -23,12 +23,12 @@
         </navPoint>
         
         <navPoint id="chapter1" playOrder="3">
-            <navLabel><text>Chapter 1: The Philosophy of MAITREYA</text></navLabel>
+<navLabel><text>Chapter 1: The Philosophy of MAITREYA</text></navLabel>
             <content src="chapter01.xhtml"/>
         </navPoint>
         
         <navPoint id="chapter2" playOrder="4">
-            <navLabel><text>Chapter 2: The Technical Foundation</text></navLabel>
+<navLabel><text>Chapter 2: The Technical Foundation</text></navLabel>
             <content src="chapter02.xhtml"/>
         </navPoint>
         
@@ -48,7 +48,7 @@
         </navPoint>
         
         <navPoint id="chapter6" playOrder="8">
-            <navLabel><text>Chapter 6: The Future of Music Production</text></navLabel>
+<navLabel><text>Chapter 6: The Future of Music Production</text></navLabel>
             <content src="chapter06.xhtml"/>
         </navPoint>
         

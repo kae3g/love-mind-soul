@@ -10,18 +10,23 @@
     
     <h2>MAITREYA DAW Technical Reference</h2>
     
-    <p>This appendix provides comprehensive technical specifications for the MAITREYA DAW project, including implementation details, API references, and development guidelines.</p>
+<p>This appendix provides comprehensive technical specifications for the
+MAITREYA DAW project, including implementation details, API references, and
+development guidelines.</p>
     
     <h3>System Requirements</h3>
     
     <div class="info">
         <h4>Minimum System Requirements</h4>
         <ul>
-            <li><strong>Operating System:</strong> macOS 10.15+, Linux (Ubuntu 20.04+), Windows 10+</li>
+<li><strong>Operating System:</strong> macOS 10.15+, Linux (Ubuntu 20.04+),
+Windows 10+</li>
             <li><strong>Memory:</strong> 8GB RAM (16GB recommended)</li>
             <li><strong>Storage:</strong> 2GB available space</li>
-            <li><strong>Audio Interface:</strong> Core Audio (macOS), ALSA (Linux), ASIO (Windows)</li>
-            <li><strong>Network:</strong> Internet connection for initial setup and updates</li>
+<li><strong>Audio Interface:</strong> Core Audio (macOS), ALSA (Linux), ASIO
+(Windows)</li>
+<li><strong>Network:</strong> Internet connection for initial setup and
+updates</li>
         </ul>
     </div>
     
@@ -242,13 +247,16 @@ SOURCE_DATE_EPOCH=1234567890 ./build.sh</code></pre>
     
     <h4>Code Signing</h4>
     <pre><code># macOS code signing
-codesign --deep --force --verbose --sign "Developer ID Application: kae3g" MAITREYA.app
+codesign --deep --force --verbose --sign "Developer ID Application: kae3g"
+MAITREYA.app
 
 # Windows code signing
-signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com maitreya.exe
+signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com
+maitreya.exe
 
 # Linux package signing
-gpg --armor --detach-sign --output maitreya-0.1.0.tar.gz.sig maitreya-0.1.0.tar.gz</code></pre>
+gpg --armor --detach-sign --output maitreya-0.1.0.tar.gz.sig
+maitreya-0.1.0.tar.gz</code></pre>
     
     <h3>Deployment Guide</h3>
     
@@ -316,16 +324,21 @@ limitations under the License.</code></pre>
     <div class="info">
         <h4>Community Resources</h4>
         <ul>
-            <li><strong>GitHub Repository:</strong> https://github.com/kae3g/maitreya</li>
-            <li><strong>Discussion Forum:</strong> https://github.com/kae3g/maitreya/discussions</li>
-            <li><strong>Issue Tracker:</strong> https://github.com/kae3g/maitreya/issues</li>
-            <li><strong>Documentation:</strong> https://github.com/kae3g/maitreya/docs</li>
+<li><strong>GitHub Repository:</strong> https://github.com/kae3g/maitreya</li>
+<li><strong>Discussion Forum:</strong>
+https://github.com/kae3g/maitreya/discussions</li>
+<li><strong>Issue Tracker:</strong>
+https://github.com/kae3g/maitreya/issues</li>
+<li><strong>Documentation:</strong> https://github.com/kae3g/maitreya/docs</li>
         </ul>
     </div>
     
     <div class="footer">
-        <p><span class="emoji">🌸</span> Technical excellence serves the greater purpose of creative expression <span class="emoji">💙</span></p>
-        <p><em>This appendix provides the technical foundation for understanding and contributing to MAITREYA DAW. For the most current information, always refer to the official repository.</em></p>
+<p><span class="emoji">🌸</span> Technical excellence serves the greater purpose
+of creative expression <span class="emoji">💙</span></p>
+<p><em>This appendix provides the technical foundation for understanding and
+contributing to MAITREYA DAW. For the most current information, always refer to
+the official repository.</em></p>
     </div>
 </body>
 </html>
